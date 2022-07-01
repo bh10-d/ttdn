@@ -1,8 +1,10 @@
 def clog(file):
-	nf = open("test.txt", "w")
+	nf = open("count.txt", "w")#test.txt
 	for x in file:
-		nf.write(x[:x.find('"')]+"\n")
-		print(x[:x.find('"')]+"\n")
+		# nf.write(x[:x.find('"')]+"\n")
+		nf.write(x[:x.find('-')-1]+' '+x[x.find(':')+1:x.find(':')+9]+"\n")
+		# print(x[:x.find('"')]+"\n")
+		print(x[:x.find('-')-1]+' '+x[x.find(':')+1:x.find(':')+9]+"\n")
 
 def ip(file):
 	nf = open("count.txt","w")
@@ -33,12 +35,21 @@ def pre(f):
 	while i < len(test):
 		j = 0
 		while j < len(arr):
-			newc = arr[j][:arr[j].find('-')-1]
-			if test[i] == newc:
+			if test[i] == arr[j]:
 				keep+=1
 			j+=1
-			print(newc)
-		merge = "So lan request: "+str(keep)+" - IP:"+test[i]
+		
+		# check hanh vi theo so luong req la k on
+		# if keep < 10:	
+		# 	merge = f'So lan request: {str(keep)} - IP: {test[i]}'
+		# if keep >= 10:
+		# 	merge = f'So lan request: {str(keep)} - "WARNING 1" - IP: {test[i]}'		
+		# if keep >= 20:
+		# 	merge = f'So lan request: {str(keep)} - "WARNING 2" - IP: {test[i]}'
+		# if keep >= 30:
+		# 	merge = f'So lan request: {str(keep)} - "BLOCK" - IP: {test[i]}'	
+		
+		merge = f'So lan request: {str(keep)} - IP: {test[i]}'
 		ak.append(merge)
 		i+=1
 		keep = 0
@@ -57,5 +68,5 @@ def count():
 f = open("mobilog.txt", "r")
 # clog(f)
 # ip(f)
-pre(f)
-# count()
+# pre(f)
+count()
