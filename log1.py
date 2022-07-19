@@ -20,7 +20,7 @@ def filter(arr):
 
 
 def pre(f):
-	nf = open("test2.txt","w")
+	nf = open("test3.txt","w")
 	keep = 1
 	s = ''
 	arr = []
@@ -49,13 +49,13 @@ def pre(f):
 		# if keep >= 30:
 		# 	merge = f'So lan request: {str(keep)} - "BLOCK" - IP: {test[i]}'	
 		
-		merge = f'So lan request: {str(keep)} - IP: {test[i]}'
+		merge = f'{test[i]}'
 		ak.append(merge)
 		i+=1
 		keep = 0
 
 	for x in ak:
-		nf.write(x+"\n")
+		nf.write(x+"")
 	# print(keep)
 	# print(ak)
 

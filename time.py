@@ -16,8 +16,11 @@ def location(file):
 	nf = open("location.txt","w")
 	for x in file:
 		ip = geocoder.ip(x)
-		nf.write("IP: "+x+"- Location: "+str(ip.city.encode("utf-8")))
-		# print(ip.city)
 
-f = open("count.txt", "r")
+		if ip.country != 'VN':
+			nf.write("- Location: "+str(ip.country)+"- IP: "+x+ "Attention")
+		nf.write("- Location: "+str(ip.country)+"- IP: "+x)	
+		print(ip.country, x)
+
+f = open("test3.txt", "r")
 location(f)
